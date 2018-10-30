@@ -1,14 +1,35 @@
 # serverless.yml
 
-service: boton-pago-serverless
+service: boton-serverless
+
+custom:
+  tableName: 'boton-serverless-${self:provider.stage}'
+  dynamodb:
+    start:
+      migrate: true
 
 provider:
   name: aws
   runtime: nodejs8.10
-  stage: dev
+  stage: ${opt:stage, 'local'}
   region: us-east-1
-
-  
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - { "Fn::GetAtt": ["OrdersDynamoDBTable", "Arn" ] }
+  environment:
+    ORDERS_TABLE: ${self:custom.tableName}
+    PAGOFACIL_API_URL: ${file(config/config.${self:provider.stage}.json):PAGOFACIL_API_URL}
+    SERVICE_ID: ${file(config/config.${self:provider.stage}.json):SERVICE_ID}
+    JWT_TOKEN: ${file(config/config.${self:provider.stage}.json):JWT_TOKEN}
+    
 functions:
   app:
     handler: app.handler
@@ -16,5 +37,24 @@ functions:
       - http: ANY /
       - http: 'ANY {proxy+}'
 
+resources:
+  Resources:
+    OrdersDynamoDBTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: orderId
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: orderId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:custom.tableName}
+
 plugins:
+  - serverless-dynamodb-local
   - serverless-offline

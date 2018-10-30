@@ -1,0 +1,5 @@
+{
+    "SERVICE_ID" : "IDSERVICIO",
+    "JWT_TOKEN" : "TOKENJWT",
+    "PAGOFACIL_API_URL" : "https://api-dev.pgf.cl/trxs/create"
+}

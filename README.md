@@ -22,7 +22,7 @@ Es 100% funcional para la creación de las ordenes, y redirije automáticamente 
 * Iniciar de manera local con : sls offline start
 * El index puede ser accedido desde http://localhost:3000 . Recomendamos usar NGROK o similar para probar los callbacks y el return URL.
 
-![Landing Botón de Pago Serverless](http://url/to/img.png)
+![Landing Botón de Pago Serverless](https://github.com/ctala/Boton-de-Pago-Serverless/raw/master/assets/img/index.png)
 
 # Ejercicio 
 

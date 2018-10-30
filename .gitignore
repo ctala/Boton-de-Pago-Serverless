@@ -2,3 +2,4 @@
 #No agregamos los modulos de Node
 node_modules
 config/config.local.json
+.dynamodb

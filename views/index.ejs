@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>
+    <%=title%>
+  </title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+</head>
+
+<body class="bg-light">
+
+  <div class="container">
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72"
+        height="72">
+      <h2>
+        <%=title%>
+      </h2>
+      <p class="lead">Este es solo un ejemplo de lo simple que es crear un botón de pago 100% Serverless usando NodeJS
+        + ExpressJS + Amazon Lambda + DynamoDB + <a href="https://www.pagofacil.cl/" target="_blank">Pago Fácil</a></p>
+
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-12 order-md-1">
+        <h4 class="mb-3">Información para la Orden</h4>
+        <form class="" method="post">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="firstName">Nombre</label>
+              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="lastName">Apellido</label>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="monto">Monto</label>
+            <input type="number" class="form-control" id="monto" value="1000" required>
+
+          </div>
+
+
+          <div class="mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="tu@tumail.cl" required>
+
+          </div>
+
+          <hr class="mb-4">
+          <button class="btn btn-primary btn-lg btn-block" type="submit">Continuar con el pago</button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">&copy; 2017-2018 <a href="https://cristiantala.cl" target="_blank">Cristian Tala Sánchez</a></p>
+
+    </footer>
+  </div>
+
+
+</body>
+
+</html>
